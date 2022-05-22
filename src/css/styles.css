@@ -1,0 +1,128 @@
+:root {
+    --colwidth: 180px;
+    --cardheight: 100px;
+    --fontfamily: sans-serif;
+}
+
+
+* {
+ margin:0px;
+ padding:0px;
+}
+
+.container {
+    width:90%;
+    margin: auto;
+}
+
+.row{
+    display:flex;
+}
+
+.cell-md {
+    width: var(--colwidth);
+}
+
+.grid{
+    margin-top: 60px;
+}
+
+.header-md{
+    height: 50px;
+    position: fixed;
+    z-index: 20;
+    margin-top: -50px;
+    background-color:aquamarine;
+}
+
+.header-md .cell-md {
+    display: table;
+    text-align: center;
+}
+
+.header-md .cell-md p {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-family: var(--fontfamily);
+}
+
+.tiles-grid{
+    display:grid;
+}
+
+.tiles-grid .tile-medium,.tile-large{
+    margin:5px;
+}
+
+.tile-medium {
+    height: var(--cardheight);
+    width: calc(var(--colwidth));
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.tile-large {
+    height: calc(var(--cardheight)*2 + 10px);
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.subject-text {
+    display: table;
+}
+
+.subject-text p{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-family: var(--fontfamily);
+}
+
+
+.term-col {
+    background-color: gray;
+}
+
+.bg-lightCyan {background-color: lightcyan;}
+.bg-lightRed {background-color: lightcoral;}
+.bg-lightGreen {background-color: lightgreen;}
+
+/* md */
+@media (min-width:768px) {
+    .term-col  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        margin-right: 5px;
+        width: 30px;
+    }
+
+    .term-col p{
+        text-align: center;
+        transform: rotate(-90deg);
+        min-width: 80px;
+        position: absolute;
+        margin-right:3px;
+        font-family: var(--fontfamily);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+    }
+}
+
+.subject {
+    margin: 2px;
+}
+
+/*
+.row div{
+    border-style:dotted;
+    border-color: black;
+    border-width: 1px;
+} */
