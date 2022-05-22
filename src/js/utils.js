@@ -25,10 +25,10 @@ export function card(content, colorClass) {
     </div>`*/
 }
 
-export function cardGrid(content){
+export function cardGrid(content,classNames = []){
 
     return `
-        <div class="tiles-grid">
+        <div class="tiles-grid ${classNames.join(' ')}">
             ${content}
         </div>
     `
