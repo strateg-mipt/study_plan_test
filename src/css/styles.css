@@ -12,7 +12,7 @@
 
 .container {
     /* width:90%; */
-    margin: auto;
+    margin: 20px;
 }
 
 .row{
@@ -20,16 +20,22 @@
 }
 
 .cell-md {
-    width: var(--colwidth);
+    /* width: var(--colwidth); */
     display: grid;
     grid-gap: 5px;
+    align-content: start;
+}
+
+.cell-double{
+    grid-column: auto / span 2;
+    grid-template-columns: repeat(auto-fit, var(--colwidth));
 }
 
 .grid{
-    margin-top: 60px;
+    
     display: grid;
     grid-template-columns: minmax(auto,30px) minmax(auto,30px) 1fr;
-    grid-gap: 5px;
+    grid-gap: 10px;
 }
 
 /*
@@ -57,21 +63,24 @@
     /* grid-auto-flow: column; */
     grid-template-columns: repeat(auto-fill, var(--colwidth));
     grid-gap:5px;
+    background-color:rgb(245,245,245);
 }
 
 .tile-medium {
     height: var(--cardheight);
-    width: calc(var(--colwidth));
+    /* width: calc(var(--colwidth)); */
     display: flex;
     justify-content: center;
     padding: 5px;
+    margin: 10px;
 }
 
 .tile-large {
-    height: calc(var(--cardheight)*2 + 10px);
+    height: calc(var(--cardheight)*2);
     display: flex;
     justify-content: center;
     padding: 5px;
+    margin: 10px;
 }
 
 .subject-text {
@@ -87,15 +96,16 @@
 
 .year-col {
     grid-row: auto / span 2;
+    background-color: slategrey;
 }
 
 .term-col {
-    background-color: gray;
+    background-color:lightslategray;
 }
 
-.bg-lightCyan {background-color: lightcyan;}
-.bg-lightRed {background-color: lightcoral;}
-.bg-lightGreen {background-color: lightgreen;}
+.bg-lightCyan {background-color: rgb(213,220,230);}
+.bg-lightRed {background-color: rgb(249,203,170);}
+.bg-lightGreen {background-color: rgb(197,224,181);}
 
 .term-col  {
     display: flex;
@@ -104,7 +114,10 @@
     /* margin-bottom: 5px; */
     /* margin-top: 5px; */
     /* margin-right: 5px; */
-    width: 30px;
+    width: 35px;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
 }
 
 .term-col p{
@@ -124,6 +137,9 @@
 @media (min-width:768px) {
 
 } */
+.d-none{
+    display:none;
+}
 
 .subject {
     margin: 2px;

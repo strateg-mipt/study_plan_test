@@ -33,9 +33,9 @@ terms.map(term_item => {
         let cards = resultData[term_item][group_item]
         if(cards){
             let cardsHTML = cards.map(card_item => card(card_item.subject,"bg-"+card_item.color)).join("\n")
-            return cell(cardsHTML,["cell-full","cell-md"])
+            return cell(cardsHTML,["cell-full","cell-md",cards.length>3 ? "cell-double" : ""])
         } else {
-            return cell("",["cell-full","cell-md"])
+            return cell("",["cell-full","cell-md","d-none"])
         }        
     }).join("\n")
 
