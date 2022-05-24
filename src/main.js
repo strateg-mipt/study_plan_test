@@ -23,8 +23,8 @@ data.forEach(item => {
 console.log(terms)
 console.log(groups)
 
-let headerHTML = cell("" ,["stub","term-col"]) + "\n" + cell("" ,["stub","term-col"]) + "\n" +
-    cardGrid(groups.map(group_item => cell(`<p>${group_item}</p>`,["cell-full","cell-md","header-md"])).join("\n"))
+let headerHTML = cell("" ,["term-col","d-none-sm"]) + "\n" + cell("" ,["term-col","d-none-sm"]) + "\n" +
+    cardGrid(groups.map(group_item => cell(`<p>${group_item}</p>`,["d-none","cell-md"])).join("\n"))
 
 let termsHTML = 
 terms.map(term_item => {
@@ -39,8 +39,8 @@ terms.map(term_item => {
         }        
     }).join("\n")
 
-    return (term_item % 2 ? cell("<p>Курс "+ term_item +"</p>" ,["stub","term-col","year-col", "fg-white"]) : "") + "\n" 
-         + cell("<p>Семестр "+ term_item +"</p>" ,["stub","term-col", "fg-white"]) + "\n" + cardGrid(groupsHTML)
+    return (term_item % 2 ? cell("<p>Курс "+ term_item +"</p>" ,["term-col","year-col", "fg-white"]) : "") + "\n" 
+         + cell("<p>Семестр "+ term_item +"</p>" ,["term-col", "fg-white"]) + "\n" + cardGrid(groupsHTML)
 }).join("\n")
 
 $plan.innerHTML = ""
