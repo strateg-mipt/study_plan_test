@@ -55,6 +55,15 @@
     font-family: var(--fontfamily);
 }
 
+.tiles-grid{
+    display:grid;
+    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(auto-fill, var(--colwidth));
+    grid-gap:5px;
+    background-color:rgb(245,245,245);
+    justify-content: center;
+}
+
 /* sm device */
 @media (max-width:576px) { 
 
@@ -103,15 +112,13 @@
     -o-transform: rotate(-90deg);
 }
 
+.tiles-grid{
+    justify-content: start;
+}
+
 } /* end small device block */
 
-.tiles-grid{
-    display:grid;
-    /* grid-auto-flow: column; */
-    grid-template-columns: repeat(auto-fill, var(--colwidth));
-    grid-gap:5px;
-    background-color:rgb(245,245,245);
-}
+
 
 .tile-medium {
     height: var(--cardheight);
