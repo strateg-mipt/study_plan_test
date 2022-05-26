@@ -1,10 +1,18 @@
-var XLSX = require('xlsx')
-var workbook = XLSX.readFile('plans.xlsx');
-var sheet_name_list = workbook.SheetNames;
-var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[1]]);
+const options = require('./import_options.json')
+const XLSX = require('xlsx')
+const xlData = []
 
-var outputData = xlData.map(item =>{
+options.filelist.forEach(file =>{
+    let workbook = XLSX.readFile(file);
+    let sheet_name_list = workbook.SheetNames;
 
+    xlData.push({
+        plans: XLSX.utils.sheet_to_json(workbook.Sheets[options.planSheetName]),
+        subjects: XLSX.utils.sheet_to_json(workbook.Sheets[options.disciplineSheetName])
+    })
+})
+
+function simpleProcessXlItem(item){
     const chooseColor = function (obj) {
         if(obj.hasOwnProperty("Лабораторная работа")){
             return "lightGreen"
@@ -26,20 +34,23 @@ var outputData = xlData.map(item =>{
         megagroup: item["Группа"],
         alternative: item.hasOwnProperty("Альтернатива") ? item["Альтернатива"] : null
     }
-})
+}
 
+var outputData = xlData[0] //.subjects.map(item => simpleProcessXlItem(item))
 
 //var xlObjData = JSON.parse(xlData);
 var fs = require('fs');
 fs.writeFile('output.json', JSON.stringify(outputData), 'utf8', function(err) {
     if (err) throw err;
-    console.log('complete');
+    console.log('Processing of XLS files completed.');
     });
 
-fs.copyFile('./output.json','../js/data.json',(err) => {
+/*fs.copyFile('./output.json','../js/data.json',(err) => {
     if (err) {
       console.log("Error Found:", err);
-    }})
+    }
 
-console.log("Test text")
+})*/
+
+console.log("Script finished")
 //console.log(xlData);
