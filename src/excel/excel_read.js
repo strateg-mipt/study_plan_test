@@ -1,9 +1,12 @@
-const options = require('./import_options.json')
+const path = require("path")
+const options = require(path.join(__dirname,'import_options.json'))
 const XLSX = require('xlsx')
 const xlData = []
 
+console.log(options)
+
 options.filelist.forEach(file =>{
-    let workbook = XLSX.readFile(file);
+    let workbook = XLSX.readFile(path.resolve(__dirname,file));
     let sheet_name_list = workbook.SheetNames;
 
     xlData.push({
@@ -40,17 +43,28 @@ var outputData = xlData[0] //.subjects.map(item => simpleProcessXlItem(item))
 
 //var xlObjData = JSON.parse(xlData);
 var fs = require('fs');
-fs.writeFile('output.json', JSON.stringify(outputData), 'utf8', function(err) {
+fs.writeFile(
+  path.join(__dirname, "output.json"),
+  JSON.stringify(outputData),
+  "utf8",
+  function (err) {
     if (err) throw err;
-    console.log('Processing of XLS files completed.');
-    });
+    console.log("Processing of XLS files completed.");
 
-/*fs.copyFile('./output.json','../js/data.json',(err) => {
-    if (err) {
-      console.log("Error Found:", err);
-    }
+    fs.copyFile(
+      path.resolve(__dirname, "./output.json"),
+      path.resolve(__dirname, "../js/data_new.json"),
+      (err) => {
+        if (err) {
+          console.log("Error Found:", err);
+        }
+        console.log("Script finished");
+      }
+    );
+  }
+);
 
-})*/
 
-console.log("Script finished")
+
+
 //console.log(xlData);

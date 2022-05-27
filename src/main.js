@@ -1,5 +1,6 @@
-import data from "./excel/output.json"
 import {row,cell,card,cardGrid} from "./js/utils"
+//import data from "./js/data.json"
+const data = require("./js/data.json")
 
 console.log(data)
 
