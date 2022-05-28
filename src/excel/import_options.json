@@ -1,5 +1,7 @@
 {
     "filelist": ["plan_full_new_multiple_correct.xlsx"],
     "planSheetName": "Планы",
-    "disciplineSheetName": "Предметы"
+    "disciplineSheetName": "Предметы",
+    "outputFilePath": "./output.json",
+    "copyFilePath": "../js/data_new.json" 
 }

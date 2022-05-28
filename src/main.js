@@ -1,6 +1,7 @@
 import {row,cell,card,cardGrid} from "./js/utils"
+import plan from "./js/data_process"
 //import data from "./js/data.json"
-const data = require("./js/data.json")
+const data = plan.subjects //require("./js/data.json")
 
 console.log(data)
 
