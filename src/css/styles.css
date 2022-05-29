@@ -13,9 +13,21 @@
     display:none !important;
 }
 
-.bg-lightCyan {background-color: rgb(213,220,230);}
-.bg-lightRed {background-color: rgb(249,203,170);}
-.bg-lightGreen {background-color: rgb(197,224,181);}
+.bg-stdLightYellow {background-color: rgb(255,241,202);}
+.bg-stdBrightYellow {background-color: rgb(254,231,153);}
+.bg-stdDarkYellow {background-color: rgb(254,217,102);}
+.bg-stdLightRed {background-color: rgb(249,203,170);}
+.bg-stdDarkRed {background-color: rgb(244,177,132);}
+.bg-stdLightPink {background-color: rgb(247,240,232);}
+.bg-stdBrightPink {background-color: rgb(252,230,216);}
+.bg-stdDarkPink {background-color: rgb(236,207,191);}
+.bg-stdBrightOrange {background-color: rgb(237,157,96);}
+.bg-stdLightGreen {background-color: rgb(226,240,217);}
+.bg-stdBrightGreen {background-color: rgb(197,224,181);}
+.bg-stdLightGray {background-color: rgb(213,220,230);}
+.bg-lightCyan {background-color:lightcyan;}
+.bg-lightRed {background-color:lightcoral;}
+.bg-lightGreen {background-color: lightgreen;}
 
 .container {
     /* width:90%; */

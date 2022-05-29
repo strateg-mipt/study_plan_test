@@ -22,13 +22,26 @@ class PlanContainer {
         (item) => (item["Учебный план.Код"] == this.childId)&&(item["Вид цикла"] == "Факультетский")
       );
 
-      this.addDisciplines(disciplineArray,this.getFacultyHash());  
+      this.addDisciplines(disciplineArray,this.getHashbyName("Факультетские дисциплины"));  
       disciplineArray = jsonData.filter(
         (item) => (item["Учебный план.Код"] == this.childId)&&(item["Вид цикла"] !== "Факультетский")
       );
 
-      this.addDisciplines(disciplineArray,"005"); 
+      this.addDisciplines(disciplineArray,"005"); //Standard hash for base disciplines
     } //
+
+    //Clear alternatives
+    this.groups.add("Иностранные языки"); //Add forein languages group to simplify plans
+
+    this.subjects.filter(item => item.alternative).forEach(item => {
+        if(!this.groups.has(item.parentName)){
+            let newparentId = item.parentId.split(".").slice(0, -1).join(".")
+            item.parentName = this.getNamebyHash(newparentId)
+            item.parentId = newparentId
+        } else {
+            item.alterGroup = "ag_" + item.alterGroup //If alter group coincide with parentName add prefix
+        }
+    })
   }
 
   addDisciplines(jsonArray,prefixId){  
@@ -43,8 +56,11 @@ class PlanContainer {
     });
   }
   
-  getFacultyHash(){
-    return this.subjects.find(item => item.parentName=="Факультетские дисциплины").parentId //Probable error
+  getHashbyName(groupName){
+    return this.subjects.find(item => item.parentName==groupName).parentId //Probable error
+  }
+  getNamebyHash(hash){
+    return this.subjects.find(item => item.parentId==hash).parentName //Probable error
   }
 }
 
@@ -91,14 +107,14 @@ class Discipline {
     this.season = jsonObj["Семестр.Вид семестра"];
     this.examType = jsonObj["Вид контрольных испытаний"];
 
-    if(jsonObj.hasOwnProperty("Учебный план.Базовая дисциплина")){
+    if(jsonObj.hasOwnProperty("Учебный план.Базовая дисциплина")&&this.parentName==""){
         this.parentName = jsonObj["Вид цикла"]=="Факультетский" ? "Факультетские дисциплины" : "Базовые дисциплины";
     }
 
     if (this.alternative) {
       this.alterGroup = jsonObj["Родитель"];
-      this.parentId = this.parentId.split(".").slice(0, -1).join(".");
-      this.parentName = "";
+    //   this.parentId = this.parentId.split(".").slice(0, -1).join(".");
+    //   this.parentName = "";
     }
 
     this.color = "lightGreen";
@@ -108,8 +124,8 @@ class Discipline {
   }
 
   addParentHash(newParentId){
-    this.parentId = [newParentId,this.parentId].join(".");
-    this.id = [newParentId,this.id].join(".");
+    this.parentId = [newParentId,this.parentId].filter(Boolean).join(".");
+    this.id = [newParentId,this.id].filter(Boolean).join(".");
   }
 
   get group() {
