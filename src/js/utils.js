@@ -1,14 +1,18 @@
 //Card with subject
-export function card(content, colorClass) {
+export function card(content, colorClass, tile_class) {
     const addInfo = `
         <div class="card-content p-2">
             110 часов
         </div>`
+
+        let addClasses = Array.isArray(colorClass) ? colorClass.join(" ") : colorClass;
     
         /* h-100 d-flex flex-justify-center flex-align-center p-4*/
-    const tile_class = content.length>60 ? "tile-large" : "tile-medium";
+        if(!tile_class) {
+            tile_class = content.length>60 ? "tile-large" : "tile-medium";
+        }
 
-    return `<div class="${tile_class} ${colorClass}">
+        return `<div class="${tile_class} ${addClasses}">
         <div class="subject-text"> 
             <p class="text-center fg-dark">
                 ${content}
