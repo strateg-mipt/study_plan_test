@@ -164,7 +164,12 @@ gap: 10px;
 }
 .section-header__right {
 }
-.swiper {
+
+.dsc-swiper {
+    width: 260px;
+}
+
+.dsc-wrapper {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -195,3 +200,4 @@ border-radius: 4px;
     margin: 0px 20px 0px 20px;
     
 }
+

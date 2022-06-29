@@ -1,5 +1,12 @@
 import {colorMapBuilder} from "./js/utils"
 import plan from "./js/data_process"
+
+// Swiper.js init
+import Swiper from 'swiper';
+import 'swiper/swiper.min.css'
+
+const swiper = new Swiper('.dsc-swiper');
+
 //import data from "./js/data.json"
 const data = plan.subjects //require("./js/data.json")
 
