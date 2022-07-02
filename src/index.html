@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../node_modules/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
     <title>Учебные планы ФАКТ МФТИ</title>
 </head>
+
 <body>
     <div id="" class="container">
         <div class="header-main">
             <img src="img/mipt_logo.png" alt="" class="header-main__logo">
-            <h1 class="header-main__h1">Информация об учебных планах Физтех-школы аэрокосмических технологий для абитуриентов</h1>
+            <h1 class="header-main__h1">Информация об учебных планах Физтех-школы аэрокосмических технологий для
+                абитуриентов</h1>
         </div>
         <div class="filters">
             <div class="filter__group">
-            <label for="program_select">Программа</label>
-            <select class="filters__select" name="program" id="program_select">
-                <option value="ГНТ">Геокосмические науки и технологии</option>
-                <option value="ТФ">Техническая физика</option>
-                <option value="КМ">Компьюетрное моделирование</option>
-                <option value="САУ">Системный анализ и управленеи в экономике замкнутого цикла</option>
-            </select></div>
+                <label for="program_select">Программа</label>
+                <select class="filters__select" name="program" id="program_select">
+                    <option value="ГНТ">Геокосмические науки и технологии</option>
+                    <option value="ТФ">Техническая физика</option>
+                    <option value="КМ">Компьюетрное моделирование</option>
+                    <option value="САУ">Системный анализ и управленеи в экономике замкнутого цикла</option>
+                </select>
+            </div>
             <div class="filter__group">
-            <label for="kafedra_select">Кафедра</label>
-            <select class="filters__select" name="kafedra" id="kafedra_select">
-                <option value="1">Кафедра тепловых процессов</option>
-                <option value="2">Кафедра систем, устройств и методов геокосмической физики</option>
-                <option value="3">Кафедра вычислительной физики</option>
-                <option value="4">Кафедра теромгидромеханики океана</option>
-            </select></div>
+                <label for="kafedra_select">Кафедра</label>
+                <select class="filters__select" name="kafedra" id="kafedra_select">
+                    <option value="1">Кафедра тепловых процессов</option>
+                    <option value="2">Кафедра систем, устройств и методов геокосмической физики</option>
+                    <option value="3">Кафедра вычислительной физики</option>
+                    <option value="4">Кафедра теромгидромеханики океана</option>
+                </select>
+            </div>
         </div>
         <div id="plan_block" class="plan">
             <div class="section-list">
@@ -39,142 +46,176 @@
                 <a class="section-list__item">Все</a>
             </div>
             <div class="legend">
-                <div class="legend__item">
+                <div class="legend__item legend__item_blue">
                     <span></span>Дисциплина
                 </div>
-                <div class="legend__item">
+                <div class="legend__item legend__item_green">
                     <span></span>Практика
                 </div>
-                <div class="legend__item">
+                <div class="legend__item legend__item_red">
                     <span></span>Итоговая аттестация
                 </div>
-                <div class="legend__item">
+                <div class="legend__item legend__item_white">
                     <span></span>Факультативная дисциплина
                 </div>
             </div>
             <div class="section">
-                    <h2 class="section-header">1 семестр, 1 курс <button class="section-header__left"></button>       
-                    <button class="section-header__right"></button></h2>
-                    <div class="dsc-swiper">
-                <div class="dsc-wrapper swiper-wrapper">
-                    <div class="swiper-card swiper-slide">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>
-                    <div class="swiper-card swiper-slide">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>                    
-                    <div class="swiper-card swiper-slide">
-                        <h3 class="swiper-card__header">
-                           Госэкзамен по математике
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
+                <h2 class="section-header">1 семестр, 1 курс <button class="section-header__left"></button>
+                    <button class="section-header__right"></button>
+                </h2>
+                <div class="dsc-swiper swiper">
+                    <div class="dsc-wrapper swiper-wrapper">
+                        <div class="swiper-card swiper-slide bg-red">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide bg-blue">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide bg-green">
+                            <h3 class="swiper-card__header">
+                                Госэкзамен по математике
+                            </h3>
+                            <div class="swiper-card__content">
+                            <p>120 а.ч.</p>
+                            <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+
+                        </div>
+                        <div class="swiper-card swiper-slide bg-white">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Госэкзамен по математике
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Экзамен 5 з.е.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-                <div class="section">
-                    <h2 class="section-header">1 семестр, 1 курс <button class="section-header__left"></button>       
-                    <button class="section-header__right"></button></h2>
-                <div class="dsc-wrapper">
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>                    
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Госэкзамен по математике
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-header">1 семестр, 1 курс <button class="section-header__left"></button>       
-                    <button class="section-header__right"></button></h2>
-                <div class="dsc-wrapper">
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Практика: научно-исследовательская работа
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
-                    </div>                    
-                    <div class="swiper-card">
-                        <h3 class="swiper-card__header">
-                           Госэкзамен по математике
-                        </h3>
-                        <p class="swiper-card__content">
-                            120 а.ч.
-                        </p>
-                        <p class="swiper-card__content">
-                            Дифф. зачет 5 з.е.
-                        </p>
+            <div class="section">
+                <h2 class="section-header">2 семестр, 1 курс <button class="section-header__left"></button>
+                    <button class="section-header__right"></button>
+                </h2>
+                <div class="dsc-swiper swiper">
+                    <div class="dsc-wrapper swiper-wrapper">
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Госэкзамен по математике
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
+            <div class="section">
+                <h2 class="section-header">3 семестр, 2 курс <button class="section-header__left"></button>
+                    <button class="section-header__right"></button>
+                </h2>
+                <div class="dsc-swiper swiper">
+                    <div class="dsc-wrapper swiper-wrapper">
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Практика: научно-исследовательская работа
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-card swiper-slide">
+                            <h3 class="swiper-card__header">
+                                Госэкзамен по математике
+                            </h3>
+                            <div class="swiper-card__content">
+                                <p>120 а.ч.</p>
+                                <p>Дифф. зачет 5 з.е.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <script src="main.js"></script>
+        <script src="main.js"></script>
 </body>
+
 </html>

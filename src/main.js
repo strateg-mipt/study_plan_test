@@ -3,9 +3,12 @@ import plan from "./js/data_process"
 
 // Swiper.js init
 import Swiper from 'swiper';
-import 'swiper/swiper.min.css'
+//import 'swiper/swiper.min.css';
 
-const swiper = new Swiper('.dsc-swiper');
+const swiper = new Swiper('.dsc-swiper',{
+    slidesPerView: 'auto',
+    observeSlideChildren: true
+});
 
 //import data from "./js/data.json"
 const data = plan.subjects //require("./js/data.json")
