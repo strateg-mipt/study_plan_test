@@ -4,8 +4,10 @@ class PlanContainer {
     this.name = options.name;
     this.id = options.id;
     this.planName = options.planName; //Printed name of plan
+    this.bazeName = options.bazeName;
     this.groups = new Set();
     this.megagroups = new Set();
+    this.terms = new Set();
     this.subjects = [];
 
     var disciplineArray = jsonData.filter(
@@ -52,15 +54,20 @@ class PlanContainer {
           this.groups.add(discipline.group);
           this.megagroups.add(discipline.megagroup);
         }
+        this.terms.add(discipline.term);
         this.subjects.push(discipline);
     });
   }
   
   getHashbyName(groupName){
-    return this.subjects.find(item => item.parentName==groupName).parentId //Probable error
+    return this.subjects.find(item => item.parentName==groupName).parentId; //Probable error
   }
   getNamebyHash(hash){
-    return this.subjects.find(item => item.parentId==hash).parentName //Probable error
+    return this.subjects.find(item => item.parentId==hash).parentName; //Probable error
+  }
+
+  getSubjectsByTerm(termValue){
+    return this.subjects.filter(item => item.term==termValue);
   }
 }
 
@@ -106,6 +113,10 @@ class Discipline {
     this.term = jsonObj["Семестр.Номер семестра"];
     this.season = jsonObj["Семестр.Вид семестра"];
     this.examType = jsonObj["Вид контрольных испытаний"];
+    this.loadTime = jsonObj["Общее количество часов"];
+    this.loadRate = parseInt(jsonObj["Всего зачетных единиц"]);
+
+    this.color = this.findColor(jsonObj);
 
     if(jsonObj.hasOwnProperty("Учебный план.Базовая дисциплина")&&this.parentName==""){
         this.parentName = jsonObj["Вид цикла"]=="Факультетский" ? "Факультетские дисциплины" : "Базовые дисциплины";
@@ -117,7 +128,7 @@ class Discipline {
     //   this.parentName = "";
     }
 
-    this.color = "lightGreen";
+    
     if(prefixHash){
         this.addParentHash(prefixHash)
     }
@@ -128,12 +139,21 @@ class Discipline {
     this.id = [newParentId,this.id].filter(Boolean).join(".");
   }
 
+  findColor(jsonObj){
+    if(this.group=="Государственная итоговая аттестация"){ return "red";}
+    if(jsonObj["Практика"]){ return "green";}
+    if(jsonObj["Факультатив"]=="Да"){ return "white";}
+    return "blue";
+  }
+
   get group() {
     return this.parentName;
   }
   get subject() {
     return this.name;
   }
+
+
 }
 
 function simpleProcessXlItem(item) {
@@ -161,12 +181,24 @@ function simpleProcessXlItem(item) {
 }
 
 const data = require("./data_new.json");
-const plansData = data.plans[0];
-const plan = new PlanContainer(data.subjects, {
+const plansData = data.plans; //[0];
+const planMain = plansData[0];
+const planBases = plansData.filter(plan => plan["Родитель"]==planMain["Код"]);
+
+const planArray = planBases.map(plan => new PlanContainer(data.subjects, {
+  id: planMain["Код"],
+  name: planMain["Учебный план"],
+  planName: planMain["Название трека"],
+  childId: plan["Код"],
+  bazeName: plan["Базовая кафедра"]
+}));
+
+
+/*const plan = new PlanContainer(data.subjects, {
   id: plansData["Код"],
   name: plansData["Учебный план"],
   planName: plansData["Название трека"],
   childId: 17921
-});
+});*/
 
-export default plan
+export default planArray
